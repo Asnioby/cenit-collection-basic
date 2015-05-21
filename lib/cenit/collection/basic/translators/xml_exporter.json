@@ -1,0 +1,9 @@
+{
+  "name": "XML Exporter",
+  "type": "Export",
+  "style": "ruby",
+  "mime_type": "application/xml",
+  "file_extension": "xml",
+  "bulk_source": false,
+  "transformation": "if (xmls = sources.collect { |source| source.to_xml } ).length == 1\r\n  xmls[0]\r\nelse\r\n  \"[#{xmls.join(',')}]\"\r\nend"
+}

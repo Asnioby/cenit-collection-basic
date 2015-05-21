@@ -1,0 +1,8 @@
+{
+  "name": "JSON Importer with Root",
+  "type": "Import",
+  "discard_events": false,
+  "style": "ruby",
+  "bulk_source": false,
+  "transformation": "root = target_data_type.name.pluralize.underscore\r\ndatas = JSON.parse(data)\r\nif (parsed_data = datas[root]).is_a?(Array) \r\n   parsed_data.each { |item|  target_data_type.create_from_json(item) }\r\nelse   \r\n   target_data_type.create_from_json(parsed_data)\r\nend"
+}

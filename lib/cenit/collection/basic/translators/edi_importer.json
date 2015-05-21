@@ -1,0 +1,8 @@
+{
+  "name": "EDI Importer",
+  "type": "Import",
+  "discard_events": false,
+  "style": "ruby",
+  "bulk_source": false,
+  "transformation": "if (parsed_data = Edi::Parse.parse_edi(target_data_type, data)).is_a?(Array) \r\n       parsed_data.each { |item|  targets <<   target_data_type.new_from_edi(item) }\r\nelse   \r\n   targets << target_data_type.new_from_edi(parsed_data)\r\nend"
+}

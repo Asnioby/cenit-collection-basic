@@ -1,0 +1,8 @@
+{
+  "name": "EDI Exporter",
+  "type": "Export",
+  "style": "ruby",
+  "mime_type": "application/EDI-X12",
+  "bulk_source": false,
+  "transformation": "if (edis = sources.collect { |source| source.to_edi } ).length == 1\r\n  edis[0]\r\nelse\r\n  \"[#{edis.join(',')}]\"\r\nend"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "JSON Exporter",
+  "type": "Export",
+  "style": "ruby",
+  "mime_type": "application/json",
+  "file_extension": "json",
+  "bulk_source": true,
+  "transformation": "if (jsons = sources.collect { |source| source.to_json(pretty: true) } ).length == 1\r\n  jsons[0]\r\nelse\r\n  \"[#{jsons.join(',')}]\"\r\nend"
+}

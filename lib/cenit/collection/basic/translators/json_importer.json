@@ -1,0 +1,8 @@
+{
+  "name": "JSON Importer",
+  "type": "Import",
+  "discard_events": false,
+  "style": "ruby",
+  "bulk_source": false,
+  "transformation": "if (parsed_data = JSON.parse(data)).is_a?(Array) \r\n       parsed_data.each { |item|  targets <<   target_data_type.new_from_json(item) }\r\nelse   \r\n   targets << target_data_type.new_from_json(parsed_data)\r\nend"
+}

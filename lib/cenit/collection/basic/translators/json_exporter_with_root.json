@@ -1,0 +1,9 @@
+{
+  "name": "JSON Exporter with Root",
+  "type": "Export",
+  "style": "ruby",
+  "mime_type": "application/json",
+  "file_extension": "json",
+  "bulk_source": true,
+  "transformation": "root = source_data_type.name.pluralize.underscore\r\nif (jsons = sources.collect { |source| source.to_json(pretty: true) } ).length == 1\r\n\"{\\\"#{root}\\\": #{jsons[0]}}\"\r\nelse\r\n \"{\\\"#{root}\\\": [#{jsons.join(',')}]}\"\r\nend"
+}
